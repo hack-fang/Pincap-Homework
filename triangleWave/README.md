@@ -16,4 +16,20 @@
 
 ## 实现
 
-python 实现较为简单
+### 环境要求
+1. Python >= **3.6**
+2. TiUP 安装
+3. Mysql 管理软件(如 Navicat)
+
+### 依赖安装
+```bash
+pip3 install pymysql
+```
+
+### 运行
+
+1. 运行 `tiup playground v4.0.2`
+2. 连接tidb并在 `test` 数据库中导入 `test.sql`
+3. 运行 `python3 run.py` 
+4. 登录 Dashboard,进入`流量可视化选项`进行观测
+5. 等待足够长的时间
