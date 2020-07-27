@@ -50,6 +50,13 @@ tiup clean -all
 ## 三角波
 一维信号，每分钟写入一张表，按照顺序1-100写入，后从99-2写入，保持循环即可。
 
+效果图
+
+![1](https://github.com/hack-fang/Pincap-Homework/blob/master/triangleWave/result.png)
+
+![2](https://github.com/hack-fang/Pincap-Homework/blob/master/triangleWave/result2.png)
+
+
 ## 灰阶图像
 
 灰阶图像为二维信号，视作矩阵，每个像素点的值为1-255，需要对不同的值进行分类，分成五档。
