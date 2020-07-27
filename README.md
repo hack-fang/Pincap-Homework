@@ -44,7 +44,7 @@ tiup clean -all
 ## 探索
 1. 官方文档提供的`Region`概念较为重要
 2. Dashboard 中`流量可视化`图表中的Y轴是各数据库组成的table，最上面的块为最晚创建的table
-3. Dashboard 中`流量可视化`图表中的X轴的单位为`min`，注意写入量为 xx / min,因此要安排写入频率和数据量
+3. Dashboard 中`流量可视化`图表中的X轴的单位为`min`，注意写入量为 xx / min,要注意写入频率和数据量
 4. python 写入速率 2000条/秒 比较恰当
 
 ## 三角波
@@ -59,12 +59,17 @@ tiup clean -all
 
 ## 灰阶图像
 
-灰阶图像为二维信号，视作矩阵，每个像素点的值为1-255，需要对不同的值进行分类，分成五档。
-每档写入的数据量也不同，比如值为255时每分钟写入量为 20000条/秒，其余数值根据1-255作等比例换算即可
+灰阶图像为二维信号，视作矩阵，每个像素点的值为1-255，1为黑色，255为白色，需要对不同的值进行分类，分成五档。
+
+每档写入的数据量也不同，比如值为255时每分钟写入量为 2000条/秒，其余数值根据 x * 2000 / 255换算即可
 考虑到 写入数据库速率比较快 且 dashboard 按照 分钟计算写入，因此可以采用分时写入错开即可。
  
  
  ## 参考资料
+ - [三角波](https://zh.wikipedia.org/zh-hans/%E4%B8%89%E8%A7%92%E6%B3%A2)
+ - [灰度图像](https://zh.wikipedia.org/zh/%E7%81%B0%E5%BA%A6%E5%9B%BE%E5%83%8F)
+ - [mysql 驱动](https://pymysql.readthedocs.io/en/latest/)
+ - [python pillow doc](https://pillow.readthedocs.io/en/stable/)
  - [TiUP 安装集群](https://pingcap.com/docs-cn/stable/quick-start-with-tidb/#%E7%AC%AC%E4%B8%80%E7%A7%8D%E4%BD%BF%E7%94%A8-tiup-playground-%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83)
  - [分布式系统的可观性](https://mp.weixin.qq.com/s/X3dodzwRhF4QX7fiL9yUTg)
  - [流量可视化](https://pingcap.com/docs-cn/stable/dashboard/dashboard-key-visualizer/)
