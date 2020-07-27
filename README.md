@@ -1,4 +1,4 @@
-![Go](https://img.shields.io/badge/Go-1.13.4%2B-blue)
+![TiDB](https://img.shields.io/badge/tidb-4.0.2-green)
 ![Python](https://img.shields.io/badge/python-3.6%2C3.7-green)
 ![License](https://img.shields.io/badge/license-GPL-blue)
  ##  为TiDB设计一个可观测的负载
@@ -46,8 +46,9 @@ tiup clean -all
 2. Dashboard 中`流量可视化`图表中的Y轴是各数据库组成的table，最上面的块为最晚创建的table
 3. Dashboard 中`流量可视化`图表中的X轴的单位为`min`，注意写入量为 xx / min,要注意写入频率和数据量
 4. python 写入速率 2000条/秒 比较恰当
+5. 生成大量表使用 `python3 gen_sql $filename num`
 
-## 三角波
+## [三角波](https://github.com/hack-fang/Pincap-Homework/tree/master/triangleWave)
 一维信号，每分钟写入一张表，按照顺序1-100写入，后从99-2写入，保持循环即可。
 
 效果图
@@ -57,13 +58,38 @@ tiup clean -all
 ![2](https://github.com/hack-fang/Pincap-Homework/blob/master/triangleWave/result2.png)
 
 
-## 灰阶图像
+## [灰阶图像](https://github.com/hack-fang/Pincap-Homework/tree/master/grayScale)
 
 灰阶图像为二维信号，视作矩阵，每个像素点的值为1-255，1为黑色，255为白色，需要对不同的值进行分类，分成五档。
 
 每档写入的数据量也不同，比如值为255时每分钟写入量为 2000条/秒，其余数值根据 x * 2000 / 255换算即可
 考虑到 写入数据库速率比较快 且 dashboard 按照 分钟计算写入，因此可以采用分时写入错开即可。
+
+效果图
+
+![1](https://github.com/hack-fang/Pincap-Homework/blob/master/grayScale/result.png)
+
+![2](https://github.com/hack-fang/Pincap-Homework/blob/master/grayScale/result2.png)
+
  
+ 
+ ## 文件说明
+
+- README.md    项目说明
+- gen_sql.py   生成sql测试文件
+- triangleWave/
+   - README.md    三角波说明文件
+   - result.png   结果文件
+   - result2.png  结果文件2
+   - run.py       运行程序
+   - test.sql     测试sql文件
+ - grayScale/
+    - README.md    灰值图说明文件
+    - result.png   结果文件
+    - result2.png  结果文件2
+    - run.py       运行程序
+    - sample.jpg   样例图片
+    - test.sql     测试sql文件
  
  ## 参考资料
  - [三角波](https://zh.wikipedia.org/zh-hans/%E4%B8%89%E8%A7%92%E6%B3%A2)
